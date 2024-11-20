@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/user/{user}', function (User $user) {
+// Route::get('/user/{user:email}', function (User $user) { // tem como dizer para o laravel por qual campo ele deve pesquisar
+Route::get('/user/{user}', function (User $user) { // se nao passar nada, ele por padrao vai pesquisar por id
     return $user;
 });
 
