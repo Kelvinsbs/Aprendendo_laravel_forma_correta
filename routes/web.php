@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -41,9 +42,11 @@ Route::get('/request', function (Request $request) {
 });
 
 // Route::get('/user/{user:email}', function (User $user) { // tem como dizer para o laravel por qual campo ele deve pesquisar
-Route::get('/user/{user}', function (User $user) { // se nao passar nada, ele por padrao vai pesquisar por id
-    return $user;
-});
+// Route::get('/user/{user}', function (User $user) { // se nao passar nada, ele por padrao vai pesquisar por id
+//     return $user;
+// });
+
+Route::get('/user/{user}', [UserController::class, 'show']);
 
 Route::prefix('usuarios')->group(function() {
     Route::get('/', function () {
