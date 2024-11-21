@@ -1,0 +1,6 @@
+<h1>
+    Hello World!
+</h1>
+
+{{ $user->name }}
+{{ $user->email }}
