@@ -2,6 +2,10 @@
 
 @section('title', 'User title')
 
+@push('styles')
+    <link rel="stylesheet" href="{{asset('css/user.css')}}">
+@endpush
+
 @section('sidebar')
     <div>
         <nav>
@@ -15,3 +19,13 @@
 {{ $user->name }} <br>
 {{ $user->email }} <br>
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('/js/user.js') }}"></script>
+@endpush
+
+@prepend('scripts')
+    <script>
+        var texto = 'ola'
+    </script>
+@endprepend
