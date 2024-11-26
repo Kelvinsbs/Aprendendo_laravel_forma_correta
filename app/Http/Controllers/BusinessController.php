@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Business;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BusinessController extends Controller
 {
@@ -43,16 +44,25 @@ class BusinessController extends Controller
         //     'address' => 'rua E quadra F'
         // ]);
 
-        $input = [
-            'name' => 'Fuilanel',
-            'email' => 'fuilanel@meeeeeeu.com',
-            'address' => 'rua G quadra H'
-        ];
+        // $input = [
+        //     'name' => 'Fuilanel',
+        //     'email' => 'fuilanel@meeeeeeu.com',
+        //     'address' => 'rua G quadra H'
+        // ];
 
-        $business = Business::find(11);
-        $business->fill($input);
-        $business->save();
+        // $business = Business::find(11);
+        // $business->fill($input);
+        // $business->save();
 
-        dd($business);
+        // dd($business);
+        // COMO FAZER UM DELETE NO BANCO DE DADOS
+        DB::connection()->enableQueryLog(); //debugar as querys da vida
+        $business = Business::where('name', 'LIKE', '%Jenif%')->get();
+        $query = DB::getQueryLog();
+        // $business = Business::find(12);
+        // $business->delete();
+        dd($query);
+        // dd($business->toArray());
+        // $business->toSqll();
     }
 }
