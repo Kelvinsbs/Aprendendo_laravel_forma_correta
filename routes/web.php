@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/businesses', [BusinessController::class, 'index']);
 Route::get('/user/{user}', [UserController::class, 'show'])->name('user.show');
 Route::get('/users/', [UserController::class, 'index'])->name('user.index');
 
