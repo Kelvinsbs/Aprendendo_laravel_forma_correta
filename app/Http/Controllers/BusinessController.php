@@ -8,14 +8,21 @@ use Illuminate\Http\Request;
 class BusinessController extends Controller
 {
     public function index() {
-        $businesses = Business::all();
-        // dd($businesses);
+        // $businesses = Business::all();
+        // // dd($businesses);
 
-        $business = Business::find(6);
+        // $business = Business::find(6);
 
-        $businessWhere = Business::where('name', 'Langworth, Feil and Purdy')->get();
-        $businessWhereFirst = Business::where('name', 'Langworth, Feil and Purdy')->first();
+        // $businessWhere = Business::where('name', 'Langworth, Feil and Purdy')->get();
+        // $businessWhereFirst = Business::where('name', 'Langworth, Feil and Purdy')->first();
 
-        dd($business, $businesses, $businessWhere, $businessWhereFirst);
+        $business = Business::create([
+            'name' => 'Jon Snow',
+            'email' => 'jon@snow.com',
+            'address' => 'Rua a quadra b'
+        ]);
+
+        dd($business);
+        // dd($business, $businesses, $businessWhere, $businessWhereFirst);
     }
 }
