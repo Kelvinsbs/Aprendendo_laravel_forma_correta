@@ -12,4 +12,10 @@ class post extends Model
     protected $fillable = [
         'title', 'content', 'tags',
     ];
+
+    protected $with = ['user']; // para nao precisar pegar todas as relacoes manuais nas controllers
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }
