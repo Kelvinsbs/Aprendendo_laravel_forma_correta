@@ -47,4 +47,9 @@ class User extends Authenticatable
         // return $this->hasMany(Post::class, 'chave estrangeira', 'chave local');
         return $this->hasMany(Post::class);
     }
+
+    public function teams() {
+        // return $this->belongsToMany(Team::class, 'tabela', 'foreignpivotkey', 'relatedpivotkey');
+        return $this->belongsToMany(Team::class);
+    }
 }
