@@ -17,13 +17,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/businesses', [BusinessController::class, 'index']);
+Route::get('/businesses', [BusinessController::class, 'index'])->name('businesses.index');
 Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
 Route::get('/users/', [UserController::class, 'index'])->name('users.index');
 
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+// Route::get('/businesses/{post}', [BusinessController::class, 'store'])->name('businesses.store');
+Route::post('/businesses/', [BusinessController::class, 'store'])->name('businesses.store');
 
 Route::get('/', function () {
     return view('welcome');

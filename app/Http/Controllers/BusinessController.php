@@ -5,10 +5,29 @@ namespace App\Http\Controllers;
 use App\Models\Business;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class BusinessController extends Controller
 {
     public function index() {
+        $businesses = Business::all();
+        return view('businesses', compact('businesses'));
+    }
+
+    public function store(Request $request) {
+        $input = $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'address' => 'string'
+        ]);
+
+        $business = Business::Create($input);
+
+        return Redirect::route('businesses.index');
+
+    }
+
+    public function index2() {
 
         // FUNCOES PRINCIPAIS DO ELOQUENT ORM
         // $businesses = Business::all();

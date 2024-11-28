@@ -9,7 +9,6 @@
     <title>@yield('title', 'Meu Titulo')</title>
 </head>
 <body>
-    <h1>Meu layout</h1>
 
     @section('sidebar')
         <div>
