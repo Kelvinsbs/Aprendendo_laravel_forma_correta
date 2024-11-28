@@ -18,8 +18,14 @@ class BusinessController extends Controller
         $input = $request->validate([
             'name' => 'required|string',
             'email' => 'required|email',
-            'address' => 'string'
+            // 'address' => 'string',
+            'logo' => 'file'
         ]);
+
+        $file = $input['logo'];
+
+        $path = $input['logo']->store('logos', 'public');
+        $input['logo'] = $path;
 
         $business = Business::Create($input);
 
