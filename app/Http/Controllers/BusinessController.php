@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Redirect;
 class BusinessController extends Controller
 {
     public function index() {
-        $businesses = Business::all();
+        $businesses = Business::paginate(); // se passar um numero dentro do paranteses, é o numero que vai ser paginado, se nao passar nada o defaut é 15
+        // dd($businesses->toArray());
+        // $businesses = Business::all();
         return view('businesses', compact('businesses'));
     }
 

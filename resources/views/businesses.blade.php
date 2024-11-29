@@ -50,4 +50,16 @@
         {{ $business->address }}
         <br><br>
     @endforeach
+
+    {{ $businesses->onEachSide(1)->links() }}
+    {{-- {{ $businesses->onEachSide(1)->links('pagination::bootstrap-4') }} --}}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 @endsection
